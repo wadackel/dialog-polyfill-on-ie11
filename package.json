@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "npm-run-all -p server watch",
+    "server": "browser-sync start -s ./public/ -f \"public/**/*\" --no-ghost-mode",
+    "build": "npm-run-all -p build:*",
+    "build:css": "postcss src/styles.css -o public/styles.css",
+    "watch": "npm-run-all -p watch:*",
+    "watch:css": "npm run build:css -- --watch",
+    "postinstall": "npm run build"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "npm-run-all": "^4.1.2",
+    "postcss": "^6.0.20",
+    "postcss-cli": "^5.0.0",
+    "postcss-dialog-polyfill": "^1.0.0"
+  }
+}

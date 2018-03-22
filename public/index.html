@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no,address=no,email=no">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.9/dialog-polyfill.css">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Dialog Polyfill test for IE11</title>
+</head>
+<body>
+  <h1>Dialog Polyfil test for IE11</h1>
+  <button id="trigger" type="button">Open</button>
+  <dialog id="dialog">
+    <h2>Dialog Title</h2>
+    <p>Dialog content.</p>
+  </dialog>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.9/dialog-polyfill.js"></script>
+  <script>
+    var $trigger = document.getElementById('trigger');
+    var $dialog = document.getElementById('dialog');
+
+    dialogPolyfill.registerDialog($dialog);
+
+    $trigger.addEventListener('click', function() {
+      $dialog.showModal();
+    }, false);
+  </script>
+</body>
+</html>
